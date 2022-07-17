@@ -34,6 +34,9 @@
     <Filter Include="Source Files\map2xmodel">
       <UniqueIdentifier>{56ed2fad-dd17-4f1d-b165-1f2d560bdad6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\xmodel2map\preferences">
+      <UniqueIdentifier>{f8b0a5d4-7603-4270-b1dc-f5b87931b67a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xmodel2colmap.cpp">
@@ -93,6 +96,9 @@
     <ClCompile Include="log.cpp">
       <Filter>Source Files\xmodel2map\log</Filter>
     </ClCompile>
+    <ClCompile Include="x_preferences.cpp">
+      <Filter>Source Files\xmodel2map\preferences</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imgui_impl_dx9.h">
@@ -137,5 +143,21 @@
     <ClInclude Include="log.h">
       <Filter>Source Files\xmodel2map\log</Filter>
     </ClInclude>
+    <ClInclude Include="x_preferences.h">
+      <Filter>Source Files\xmodel2map\preferences</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="xmodel2colmap.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\L\Desktop\x2c.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

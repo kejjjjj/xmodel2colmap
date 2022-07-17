@@ -10,7 +10,7 @@ inline uint32_t WINDOW_HEIGHT = 400;
 inline uint32_t WINDOW_POS[2] = { 100, 100 };
 
 inline float MODELSCALE;
-
+inline char GAME_PATH[MAX_PATH];
 namespace W
 {
 	// Data
@@ -24,7 +24,7 @@ namespace W
 	void ResetDevice();
 	LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 	void window();
-	void renderstuff(HWND hwnd);
+	bool renderstuff(HWND hwnd);
 	void MakeStyle();
 
 	void GetWindowResolution(RECT rect, float* resolution);

@@ -25,9 +25,15 @@ void X::X_WriteOutput(std::fstream& fp, std::vector<output_mesh>& mesh)
 {
 	if (!FS::F_CloseFile(&fp))
 		return;
+	std::string dir = std::string(GAME_PATH) + "\\map_source\\prefabs\\kej";
+	std::string mapsource = dir + '\\' + fileinfo.mapname + ".map";
 
-	if (!FS::F_OpenFile(&fp, "D:\\Activision\\CallOfDuty4\\map_source\\ass.map", FS::fileopen::FILE_OUT)) {
-		FS::F_Error("X_WriteOutput(): can't open file for output");
+	if (!FS::F_DirectoryExists(dir))
+		FS::F_CreateDirectory(dir);
+
+	if (!FS::F_OpenFile(&fp, mapsource.c_str(), FS::fileopen::FILE_OUT)) {
+		FS::F_Error("X_WriteOutput(): can't open file for output"
+		"\ndoes map_source\\prefabs\\kej exist?\n");
 		return;
 	}
 

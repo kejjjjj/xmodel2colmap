@@ -13,6 +13,9 @@ namespace FS
 		FILE_BINARY = 32
 	};
 
+	std::string GetExeFileName();
+	std::string GetExePath();
+
 	bool F_OpenFile(std::fstream* fp, const char* path, fileopen type);
 	bool F_CloseFile(std::fstream* fp);
 
@@ -23,7 +26,9 @@ namespace FS
 	std::string F_ReadUntil(std::fstream& fp, char end);
 	void F_Error(const char* text);
 
-	const char* F_GetFileName(std::string path);
+	std::string F_GetFileName(std::string fullpath);
+	std::string GetFileExtension(std::string file);
+	std::string RemoveFileExtension(std::string file, size_t chars);
 
 	template <typename t> void F_ReadValueAfterSpace(std::fstream& fp, t& value)
 	{
@@ -59,7 +64,8 @@ namespace FS
 
 	}
 
-	
+	bool F_DirectoryExists(std::string directory_path);
+	bool F_CreateDirectory(std::string path);
 
 	namespace glob
 	{

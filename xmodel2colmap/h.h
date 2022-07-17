@@ -16,6 +16,10 @@ typedef vec_t vec4_t[4];
 #include <vector>
 #include <string>
 #include <fstream>
+#include <filesystem>
+#include <direct.h>
+
+namespace fs = std::filesystem;
 
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_dx9.h"
@@ -31,4 +35,6 @@ typedef vec_t vec4_t[4];
 #include "log.h"
 
 #include "x_init.h"
+
+#include "x_preferences.h"
 #endif

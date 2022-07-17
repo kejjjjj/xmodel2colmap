@@ -30,7 +30,7 @@ void _Log::AddLog(const char* fmt, ...) IM_FMTARGS(2)
 void _Log::Draw(const char* title, bool* p_open, HWND hwnd)
 {
 
-    bool _a = ImGui::Begin(title, nullptr);
+    bool _a = ImGui::BeginChild("loggging", ImVec2(720, 300), true);
 
     if (ImGui::BeginPopup("Options"))
     {
@@ -91,7 +91,8 @@ void _Log::Draw(const char* title, bool* p_open, HWND hwnd)
         ImGui::SetScrollHereY(1.0f);
 
     ImGui::EndChild();
-    ImGui::End();
+
+    ImGui::EndChild();
 }
 
 void W::render_log(HWND hwnd)

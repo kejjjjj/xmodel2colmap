@@ -79,12 +79,51 @@ void FS::F_SkipCharacters(std::fstream& fp, uint32_t len)
 	for (uint32_t i = 0; i < len; i++)
 		F_Get(fp);
 }
-const char* FS::F_GetFileName(std::string path)
+std::string FS::F_GetFileName(std::string fullpath)
 {
-	uint32_t pos = path.find_last_of("\\");
+	size_t pos = fullpath.find_last_of('\\');
 
-	if (pos < 0)
-		return path.c_str();
+	if (pos < 1)
+		return fullpath;
 
-	return path.substr(pos + 1).c_str();
+	fullpath = fullpath.substr(pos + 1);
+
+
+	return fullpath;
+}
+std::string FS::GetFileExtension(std::string file)
+{
+
+	int extensionPos = file.find_last_of(".");
+
+	if (extensionPos < 0)
+		return "No extension";
+
+	file = file.substr(extensionPos);
+
+
+	return file;
+}
+std::string FS::RemoveFileExtension(std::string file, size_t chars)
+{
+	return file.substr(0, file.size() - chars);
+}
+std::string FS::GetExeFileName()
+{
+	char buffer[MAX_PATH];
+	GetModuleFileName(NULL, buffer, MAX_PATH);
+	return std::string(buffer);
+}
+std::string FS::GetExePath()
+{
+	std::string f = GetExeFileName();
+	return f.substr(0, f.find_last_of("\\/"));
+}
+bool FS::F_DirectoryExists(std::string directory_path)
+{
+	return fs::exists(directory_path);
+}
+bool FS::F_CreateDirectory(std::string path)
+{
+	return _mkdir((path).c_str()) != -1;
 }
